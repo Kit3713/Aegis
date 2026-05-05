@@ -763,8 +763,6 @@ These are the calls that need to be made — by you, with input — before v0.1.
 
 ### 10.1 Identity and naming
 
-1. **Project name.** ATL/Anti-Trust Linux, the original name, was decided to be too on-the-nose; the May 5 conversation didn't land on a replacement. What's the public name? What's the kernel/branding name vs. the marketing name?
-2. **Relationship to Ironclad.** Same GitHub org? Same repo? Cross-link in READMEs? Are these explicitly sibling projects under one umbrella, or independent?
 3. **License.** MIT (matches Ironclad)? GPLv2 (matches kernel/AlmaLinux ecosystem)? AGPL for the broker daemon specifically?
 4. **Trademark posture.** Trademark the name now or leave it free?
 
@@ -836,29 +834,3 @@ These are the calls that need to be made — by you, with input — before v0.1.
 44. **Scope discipline.** Realistically, building v0.1 to the spec above is a year-plus of evening work alongside cert study, the resume site, Ironclad, and field work. Is there a smaller v0.1 that still demonstrates the core idea? "Just AlmaLinux + KDE + signed verity + one cube + duress wipe" might be enough.
 
 ---
-
-## 11. What I'd push back on if I were external review
-
-A few things to think about before this becomes a public commitment:
-
-- The MLS-by-default story is a heavy lift. SELinux MLS policy authoring is a specialized skill, and getting it wrong produces a system that's either constantly broken or silently permissive. The project either needs deep SELinux expertise or needs to pull from an existing MLS reference policy and harden incrementally.
-- The cube model overlaps significantly with Qubes OS. The differentiation story (RHEL base, signed templates, broker model, deniability, atomic immutability, MLS) is real, but should be articulated clearly so this doesn't read as "Qubes but with my preferences." Qubes-the-product has thousands of person-years of work in it.
-- The broker is a single point of trust. If it's compromised, every cube's IPC is compromised. The broker's own threat model deserves its own document.
-- "Forensically unsuspicious" and "ships hidden OS support" are in tension. A forensic examiner who knows the OS exists knows that any install of it *might* have a hidden volume. The deniability is "I might have one but you can't prove it from the disk," not "you'd never know to look." Worth being precise about in the README.
-- Scope vs. timeline. Be honest with yourself about what one person on evenings can ship, then halve it for v0.1.
-
----
-
-## 12. Immediate next steps (proposed)
-
-When you pick this back up:
-
-1. Decide §10.1 (name, license, repo relationship to Ironclad) — these gate everything else.
-2. Pick the v0.1 minimum viable architecture from §9 + §10.10 (4) — what's the smallest demo that proves the concept?
-3. Start a `THREAT_MODEL.md` from §2 — it's already 80% written above.
-4. Stub a `ROADMAP.md` with v0.1 / v0.2 / v0.5 / v1.0 milestones once §9 firms up.
-5. Open a GitHub Discussions thread (or a `decisions/` directory of ADRs) to log the answers to §10 as they're made, so this draft can be retired in favor of decision records.
-
----
-
-*End of draft. — written from the May 5 secure-filesystem conversation. Anything important I missed should be added by you on next pass; anything wrong here should be struck through rather than deleted, so the reasoning trail is visible.*
