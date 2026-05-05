@@ -41,8 +41,7 @@ The system is **not** designed to defeat:
 3. **Plausible deniability as a feature, not a research project.** Two LUKS partitions with identical crypto profiles. The data partition's "free" space is mathematically indistinguishable from a hidden OS, because that's exactly what it might be.
 4. **Atomic and (where possible) immutable.** State transitions happen as complete units. Read-only `/usr` enforced by dm-verity. Updates ship as image transactions.
 5. **Compartmentalization over hardening.** Workloads run in cubes (VMs). The host is small and boring. Breaking a cube costs you that cube, not the system.
-6. **No god-tier admin role.** Storage administration, VM administration, and policy administration are orthogonal. Inherited from the original ATL design and worth preserving.
-7. **Hardware-tier graceful degradation.** A user with no TPM still gets a meaningfully secure system. A user with Coreboot/Heads gets the strongest version. The same OS, same install media, different ceiling.
+6. **Hardware-tier graceful degradation.** A user with no TPM still gets a meaningfully secure system. A user with Coreboot/Heads gets the strongest version. The same OS, same install media, different ceiling.
 8. **No declarative layer.** The opinionated architecture is shipped as code. Users do not write specs to install or to manage the system. Power-user customization (custom bootc images, etc.) lives outside the OS proper.
 
 ---
