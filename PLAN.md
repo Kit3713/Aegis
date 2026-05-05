@@ -110,7 +110,7 @@ Cubes are KVM virtual machines with a project-signed root image and per-cube sta
 
 The opinionated MLS lattice is fixed. Concrete tier names and semantic mapping to cubes is one of the larger open questions (see §10), but the structural commitments are:
 
-- A small, fixed number of named tiers (likely 3–5).
+- A small, fixed number of named tiers.
 - The host runs at a defined tier (likely the highest, or a separate "host" label outside the user lattice).
 - Cubes are assigned to tiers by the project-signed template metadata; users do not choose a cube's tier ad-hoc.
 - Cross-tier data movement requires broker mediation. There is no shared filesystem between tiers.
